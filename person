@@ -1,0 +1,25 @@
+function Person (name, age, gender, interests) {
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
+  this.hello = function() {
+
+  let countInterests = this.interests.length;
+  let message1 = `Hello, my name is ${this.name}, my gender is ${this.gender} and I am ${this.age} years old.`;
+
+  if (countInterests === 1 ) {
+       return `${message1} My interest is ${this.interests}.`;
+       }
+        else if (countInterests > 1) {
+        return `${message1} My interests are ${this.interests}.`;
+         }
+         else if (countInterests < 1) {
+         return `${message1} I have no interests.`;
+         }
+    }
+}
+
+let person = new Person("Shieler", 56, "female", ["hiking", "food"]);
+let greeting = person.hello();
+console.log(greeting);
