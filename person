@@ -1,25 +1,32 @@
-function Person (name, age, gender, interests) {
-  this.name = name;
-  this.age = age;
-  this.gender = gender;
-  this.interests = interests;
-  this.hello = function() {
-
-  let countInterests = this.interests.length;
-  let message1 = `Hello, my name is ${this.name}, my gender is ${this.gender} and I am ${this.age} years old.`;
-
-  if (countInterests === 1 ) {
-       return `${message1} My interest is ${this.interests}.`;
-       }
-        else if (countInterests > 1) {
-        return `${message1} My interests are ${this.interests}.`;
-         }
-         else if (countInterests < 1) {
-         return `${message1} I have no interests.`;
-         }
+class Person {
+    constructor(name, age, gender, interests) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.interests = interests;
+        this.hello = function () {
+            let pi = this.interests;
+            let countInterests = pi.length;
+            let message1 = `Hello, my name is ${this.name}, my gender is ${this.gender} and I am ${this.age} years old.`;
+            if (countInterests === 1) {
+                return `${message1} My interest is ${this.interests}.`;
+            } else if (countInterests > 1) {
+                let popped = pi.pop();
+                return `${message1} My interests are ${pi.join(", ")} and ${popped}.`;
+            } else if (countInterests < 1) {
+                return `${message1} I have no interests.`;
+            }
+        };
     }
 }
 
-let person = new Person("Shieler", 56, "female", ["hiking", "food"]);
+// check acceptance criteria conditions
+let person = new Person("Shieler", 56, "female", ["hiking", "food", "music", "traveling"]);
+let personTwo = new Person("Gift", 24, "female", ["partying", "chess"]);
+let personThree = new Person("Mel", 10, "male", []);
 let greeting = person.hello();
+let greetingTwo = personTwo.hello();
+let greetingThree = personThree.hello();
 console.log(greeting);
+console.log(greetingTwo);
+console.log(greetingThree);
